@@ -1,5 +1,9 @@
 package com.serli.demo.concordion;
 
+import org.concordion.api.extension.ConcordionExtension;
+import org.concordion.api.extension.Extension;
+import org.concordion.api.extension.Extensions;
+import org.concordion.ext.ScreenshotExtension;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -10,6 +14,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 @RunWith(ConcordionRunner.class)
 public class Login {
+
+	@Extension
+	public ConcordionExtension extension = new ScreenshotExtension()
+			.setScreenshotOnAssertionSuccess(true);
 
 	private static FirefoxDriver driver;
 

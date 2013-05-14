@@ -7,12 +7,12 @@
 > Testing the login page with the administrator user
 
 ## Given
-- the username Administrator
-- the password Administrator
-- the login page http://localhost:8080/nuxeo
+- the username <span c:set="#username">Administrator</span>
+- the password <span c:set="#password">Administrator</span>
+- the login page <span c:set="#url">http://localhost:8080/nuxeo</span>
 
 ## When
-- the user <span c:assertEquals="accessAndFills()">access and fills</span> the login page
+- the user <span c:assertEquals="accessAndFills(#url, #username, #password)">access and fills</span> the login page
 - the user <span c:assertEquals="submits()">submits</span> the page
 
 ## Then

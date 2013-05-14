@@ -10,35 +10,36 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 @RunWith(ConcordionRunner.class)
 public class Login {
-	
+
 	private static FirefoxDriver driver;
 
 	@BeforeClass
-	public static void startDriver(){
+	public static void startDriver() {
 		driver = new FirefoxDriver();
 	}
-		
+
 	@AfterClass
-	public static void stopDriver(){
+	public static void stopDriver() {
 		driver.quit();
 	}
 
 	private WebElement passwordField;
-	
-	public String accessAndFills(){
+
+	public String accessAndFills(String url, String username, String password) {
+		driver.get(url);
 		WebElement usernameField = driver.findElement(By.id("username"));
-		usernameField.sendKeys("Administrator");
+		usernameField.sendKeys(username);
 		passwordField = driver.findElement(By.id("password"));
-		passwordField.sendKeys("Administrator");
+		passwordField.sendKeys(password);
 		return "access and fills";
 	}
-	
-	public String submits(){
+
+	public String submits() {
 		passwordField.submit();
 		return "submits";
 	}
-	
-	public String displayDomain(){
+
+	public String displayDomain() {
 		return driver.getTitle();
 	}
 }

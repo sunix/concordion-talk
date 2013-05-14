@@ -1,0 +1,26 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion">
+<body>
+<div class="md">
+
+#BDD and Concordion - Login with Administrator
+
+> Testing the login page with the administrator user
+
+## Given
+- the username Administrator
+- the password Administrator
+- the login page http://localhost:8080/nuxeo
+
+## When
+- the user <span c:assertEquals="accessAndFills()">access and fills</span> the login page
+- the user <span c:assertEquals="submits()">submits</span> the page
+
+## Then
+Then the <span c:assertEquals="displayDomain()">Nuxeo Platform - Default domain</span> page is displayed
+
+</div>
+<script type="text/javascript" src="../../../../scripts/jquery-1.9.0.min.js"> </script>
+<script type="text/javascript" src="../../../../scripts/Markdown.Converter.js"> </script>
+<script type="text/javascript" src="../../../../scripts/Markdown.ClassConvert.js"> </script>
+</body>
+</html>

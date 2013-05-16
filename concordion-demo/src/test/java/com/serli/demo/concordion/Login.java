@@ -12,12 +12,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.serli.demo.concordion.ext.SeleniumScreenshotTaker;
+
 @RunWith(ConcordionRunner.class)
 public class Login {
 
 	@Extension
 	public ConcordionExtension extension = new ScreenshotExtension()
-			.setScreenshotOnAssertionSuccess(true);
+			.setScreenshotOnAssertionSuccess(true).setScreenshotTaker(
+					new SeleniumScreenshotTaker(driver));
 
 	private static FirefoxDriver driver;
 

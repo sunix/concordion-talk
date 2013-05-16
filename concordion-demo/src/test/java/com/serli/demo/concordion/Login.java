@@ -12,9 +12,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.serli.demo.concordion.ext.ResourcesExtension;
 import com.serli.demo.concordion.ext.SeleniumScreenshotTaker;
 
 @RunWith(ConcordionRunner.class)
+@Extensions(ResourcesExtension.class)
 public class Login {
 
 	@Extension

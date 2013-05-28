@@ -1,0 +1,15 @@
+[submodule "slides/deck.js"]
+	path = slides/deck.js
+	url = git://github.com/twitwi/deck.js.git
+[submodule "slides/deck.js-markdown"]
+	path = slides/deck.js-markdown
+	url = git://github.com/tmbrggmn/deck.js-markdown.git
+[submodule "slides/nuxeo-slide-template"]
+	path = slides/nuxeo-slide-template
+	url = git://github.com/nuxeo/nuxeo-slide-template.git
+[submodule "slides/jquery-countdown"]
+	path = slides/jquery-countdown
+	url = git://github.com/pfarmer/jquery-countdown.git
+[submodule "slides/presenterview"]
+	path = slides/presenterview
+	url = git://github.com/sunix/presenterview.git

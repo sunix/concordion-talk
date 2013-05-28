@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>Sun Seng David TAN - Introduction</title>
+
+<meta name="description" content="Sun Seng David TAN - Introduction">
+<meta name="author" content="Sun Seng David TAN">
+<meta name="viewport" content="width=1024, user-scalable=no">
+
+<!-- Core and extension CSS files -->
+<link rel="stylesheet" href="deck.js/core/deck.core.css">
+<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+<link rel="stylesheet"
+  href="deck.js/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+<link rel="stylesheet" href="deck.js/extensions/scale/deck.scale.css">
+<link rel="stylesheet" href="deck.js/extensions/svg/deck.svg.css">
+<link rel="stylesheet" href="presenterview/deck.presenterview.css">
+
+<link rel="stylesheet"
+  href="nuxeo-slide-template/themes/style/nuxeo-theme.css">
+<link rel="stylesheet"
+  href="nuxeo-slide-template/themes/style/nuxeo-theme-with-comments.css">
+
+<link rel="stylesheet"
+  href="nuxeo-slide-template/themes/transition/nuxeo-transition.css">
+
+<link rel="stylesheet" href="highlight.js/styles/idea.css">
+<!--script src="highlight.js/highlight.pack.js"></script-->
+<!--script>hljs.initHighlightingOnLoad();</script-->
+<link rel="stylesheet" href="concordion-deck.css">
+
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+
+<div class="nuxeo-logo">
+<span class="sub-part">Sun Seng David TAN - BDD and Concordion</span>
+</div>
+
+
+
+<section class="slide">
+#BDD avec Concordion
+######Sun Seng David TAN @ Serli
+</section>
+
+<section class="slide">
+### Sun TAN - Java Developer
+<img src="me.jpg" class="float-right" />
+#### 9 years and 9 months experienced
+- Previous: Nuxeo, Economic Outlook (Australia), Thales
+- Eclipse RCP, Nuxeo, FOSS, Agile 
+<img src="eo.gif" alt="EO" />
+<img src="nuxeo.png" alt="Nuxeo" class="float-left" />
+<img src="thales.gif" alt="Thales"/>
+
+<!--
+####FOSS and agile
+- Worked for FOSS vendor Nuxeo
+- Close to the community (Andesi.org, Nuxeo, PostgreSQL, etc ...)
+- Scrum master at Nuxeo
+- Fond of BDD and TDD
+-->
+
+@sunsengdavidtan  
+https://github.com/sunix
+
+</section>
+
+<section class="slide">
+### Java Software Developer @Serli
+####A few words about SERLI
+<img src="serlilogo.png" alt="Serli logo" class="float-right">
+
+- Software engineering company based in France
+- 65 people
+- 80% of the business is Java-related
+- Small company working for big ones
+- OSS contribution: 10% of workforce
+- www.serli.com
+- @SerliFr
+</section>
+
+<section class="slide">
+###Agenda - BDD and Concordion
+- TDD and BDD
+- Corcordion basics - Live coding %s/coding/testing/g
+- Why BDD ?
+</section>
+
+<section class="slide">
+## TDD and BDD
+</section>
+
+<section class="slide">
+### TDD Test Driven Development
+<blockquote>Write test first, implements after</blockquote>
+
+###Benefits
+- Developer natural APIs
+- Easier to refactor
+- Nice % test coverage
+- No over code design
+</section>
+
+<section class="slide">
+### BDD Behaviour Driven Development
+
+<blockquote>Write Human readable test scenario first</blockquote>
+
+###Benefits
+- Human readable (dev, PO, users ...)
+- Nice % Acceptance tests, Non regression tests coverage
+- Developer knows exactly what to implement
+
+####Behavioral specification 
+- User stories
+- Scenarios
+- Given - When - Then
+</section>
+
+
+<section class="slide">
+## Corcordion basics - Live coding %s/coding/testing/g
+</section>
+
+ 
+<section class="slide" id="skills-eclipse-rcp">
+###Concordion the basics
+<img alt="How it works" src="HowItWorks.png" class="float-right"></img>
+
+- Behavioral Specs/scenario in html
+- Fixtures in java
+
+#### Concordion life cycle
+- Linked all together with special attributes in the specs.
+- Behavioral specs is parsed
+- Execute fixtures instructions
+- Generates reports
+</section>
+
+<section id="basics" class="slide no-md">
+<h3>Concordion basics</h3>
+<div class="split-box split-37">
+<div id="myslide1" class="slide">
+####Behavioral specs and fixtures
+ - same folder/package
+ - same name
+</div>
+<div id="myslide2" class="slide">
+####Requirements
+- Concordion namespace
+- `ConcordionRunner` JUnit4 runner
+</div>
+<div id="myslide3" class="slide">
+####Basic Concordion instrumentations
+ - html tags drive fixture methods
+</div>
+<div id="myslide4" class="slide">
+####Use anything in java to "drive" your test
+- Plain java
+- Selenium Webdriver
+- SWTBot
+- Apache commons exec
+  </div>
+</div>
+<div class="split-box split-63">
+<span class="show1">Specs: com/serli/demo/concordion/HelloWorld.html</span>
+<pre class="show1"><code>&lt;html<span class="show2"> xmlns:c="http://www.concordion.org/2007/concordion"</span>&gt;
+&lt;body&gt;
+Hello &lt;span<span class="show3"> c:assertEquals="world()"</span>&gt;<span class="highlight4">World</span>&lt;/span&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<div class="show0">
+<span class="show1">Fixture: com/serli/demo/concordion/HelloWorld.java</span>
+<pre class="show1"><code><span class="show1">package com.serli.demo.concordion;</span>
+<span class="show2">
+@RunWith(ConcordionRunner.class)</span>
+public class <span class="show1">HelloWorld</span> {
+<span class="show3">    public String world(){
+        <span class="show4">return "World";</span>
+    }
+</span>
+}</code></pre>
+</div>
+</div>
+</section>
+
+
+<section class="slide">
+###c:assertEquals() demo
+####Good to know
+Takes a method name as parameter
+
+    Hello <span c:assertEquals="world()">World</span>
+
+####Demo's content:
+<video class="float-right" width="711" height="400" controls="controls">
+  <source src="screencasts/demo1-assertEquals.ogg" type="video/ogg" />
+</video>
+
+- Project configuration
+- Eclipse plugin
+- Basic login scenario
+- Markdown.js
+- Given When Then
+- assertEquals
+- Test failures:
+  - wrong assumption
+  - Exception
+- Webdriver
+
+</section>
+
+<section class="slide no-md">
+<h3>Variables with c:set</h3>
+<div class="split-box split-37">
+<div class="slide">
+####Specification
+- Set variables
+</div>
+<div class="slide">
+- pass variables to the fixture
+</div>
+<div class="slide">
+![Hello Bob](sethelloBob.png)
+</div>
+</div>
+<div class="split-box split-63">
+
+Specs: com/serli/demo/concordion/HelloWorld.html
+<pre><code>&lt;html xmlns:c="http://www.concordion.org/2007/concordion"&gt;
+ &lt;body&gt;
+  The greeting for user
+  &lt;span <span class="setvars">c:set="#firstName"</span>&gt;<span class="setvars">Bob</span>&lt;/span&gt;
+  will be:
+  &lt;span c:assertEquals="greetingFor(<span class="passvars">#firstName</span>)"&gt;Hello Bob!&lt;/span&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+Fixture: com/serli/demo/concordion/HelloWorld.java
+<pre><code>package com.serli.demo.concordion;
+@RunWith(ConcordionRunner.class)
+public class HelloWorld {
+
+public String greetingFor(String <span class="passvars">firstName</span>) {
+  return "Hello " + <span class="passvars">firstName</span> + "!";
+ }
+
+}</code></pre>
+</div>
+</section>
+
+<section class="slide">
+###c:set() demo
+####Demo's content:
+<video class="float-right" width="711" height="400" controls="controls">
+  <source src="screencasts/demo2-set.ogg" type="video/ogg" />
+</video>
+
+- param variable with c:set()
+</section>
+
+
+
+<section class="slide">
+###c:run
+####Test Suite
+- Run/call another concordion test from a concordion test
+- `<a href="link/to/the/subtest.html" c:run="concordion">My subtest</a>` in the main specification
+
+####Demo's content:
+<video class="float-right" width="711" height="400" controls="controls">
+  <source src="screencasts/demo3-suite-2.ogg" type="video/ogg" />
+</video>
+
+- Suite with c:run
+</section>
+
+
+<section class="slide">
+###Extensions and Screenshots
+<video class="float-right" width="711" height="400" controls="controls">
+  <source src="screencasts/demo4-screenshot.ogg" type="video/ogg" />
+</video>
+
+####Extensions
+ - `@Extensions` to the class
+ - `@Extension` to the extension attribute of the class
+ - Available extensions with `concordion-extensions`
+
+####Screenshot extension
+- Takes screenshots and display them in the reports
+
+####Demo's content:
+- 2 ways to add screenshots
+- Screenshot on failure
+- Screenshot always
+</section>
+
+
+
+<section class="slide">
+## Why BDD ?
+</section>
+
+  <section class="slide no-md">
+    <h3>Daily kanban board ... it works ... </h3>
+    <object type="deckjs/svg" class="svgitem svg4">
+      <param name="src" value="kanban.svg" />
+      <param name="width" value="1422px" />
+      <param name="height" value="800px" />
+    </object>
+
+    <div class="anim-hide slide anim-continue"
+      data-what="#dev1,#dev2,#dev3,#dev4,#dev5,#dev5f,#dev6,#dev7,#dev8,#dev9, #po1,#po2,#po3,#po4,#po5,#po5f,#po6,#po7,#po8,#po9,#done1,#done2,#done3,#done4,#done5,#done6,#done7,#done8,#done9"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo1" data-attr="svg-transform: translate(-229.8097,-182.66925)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo2" data-attr="svg-transform: translate(-179.13372,-114.3156)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo4" data-attr="svg-transform: translate(-246.30886,-53.033008)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo6" data-attr="svg-transform: translate(-148.49242,-12.963624)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo3" data-attr="svg-transform: translate(-261.62951,94.280904)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo7" data-attr="svg-transform: translate(-162.63456,141.42136)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo5" data-attr="svg-transform: translate(-248.66588,248.66588)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo8" data-attr="svg-transform: translate(-173.24116,312.30549)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo9" data-attr="svg-transform: translate(-214.48906,397.15831)"></div>
+
+    <div class="anim-show slide" data-what="svg"></div>
+    <div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform:  translate(463.15494,-205.06096)"></div>
+    <div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(863.84878,-200.34692)"></div>
+    <div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(1154.9411,-192.09734)"></div>
+
+<!-- 
+1
+<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(-229.8097,-182.66925)"></div>
+<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(463.15494,-205.06096)"></div>
+<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(863.84878,-200.34692)"></div>
+<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(1154.9411,-192.09734)"></div>
+
+2
+<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(-179.13372,-114.3156)"></div>
+<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(440.76322,215.66756)"></div>
+<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(850.88515,292.27079)"></div>
+<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(1174.9758,348.83934)"></div>
+
+4
+<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(-246.30886,-53.033008)"></div>
+<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(434.87067,-207.41799)"></div>
+<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(877.99092,-155.56349)"></div>
+<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(1134.9064,143.77838)"></div>
+
+6
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(-148.49242,-12.963624)"></div>
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(469.0475,67.175144)"></div>
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(877.99092,134.35029)"></div>
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
+
+3
+<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(-261.62951,94.280904)"></div>
+<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(486.72517,-62.461099)"></div>
+<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(872.09836,-18.856181)"></div>
+<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(1198.546,-111.95857)"></div>
+
+7
+<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(-162.63456,141.42136)"></div>
+<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(383.01617,-64.818117)"></div>
+<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(833.20749,14.14214)"></div>
+<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(1243.3294,142.59987)"></div>
+
+5
+<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(-248.66588,248.66588)"></div>
+<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(562.14989,-190.91883)"></div>
+<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(840.27856,-127.27922)"></div>
+<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(1212.6881,23.570222)"></div>
+
+8
+<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(-173.24116,312.30549)"></div>
+<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(384.19468,71.889185)"></div>
+<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(827.31493,172.06265)"></div>
+<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(1133.7279,240.4163)"></div>
+
+9
+<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(-214.48906,397.15831)"></div>
+<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(326.44763,-188.56181)"></div>
+<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(820.24386,-86.031322)"></div>
+<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(1137.2634,-32.998314)"></div>
+-->
+
+<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(440.76322,215.66756)"></div>
+<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(850.88515,292.27079)"></div>
+<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(1174.9758,348.83934)"></div>
+
+
+<!-- 3 4 6 to dev -->
+<div class="anim-attribute slide anim-continue" data-what="#todo4" data-attr="svg-transform: translate(434.87067,-207.41799)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo6" data-attr="svg-transform: translate(469.0475,67.175144)"></div>
+<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(486.72517,-62.461099)"></div>
+
+<!-- 3 to po, 7 to dev -->
+<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(872.09836,-18.856181)"></div>
+<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(383.01617,-64.818117)"></div>
+
+<!-- 4 to po, 5 to dev, 5 to po, 9 to dev-->
+<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(877.99092,-155.56349)"></div>
+<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(562.14989,-190.91883)"></div>
+<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(840.27856,-127.27922)"></div>
+<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(326.44763,-188.56181)"></div>
+
+<!-- 6 to po, 8 to dev, 6 to done, 7 to po -->
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
+<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(384.19468,71.889185)"></div>
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
+<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(833.20749,14.14214)"></div>
+
+<!-- 7 to done, 6 to done, 3 4 to done, 8 9 to po -->
+<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(1243.3294,142.59987)"></div>
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo3" data-attr="svg-transform: translate(1198.546,-111.95857)"></div>
+<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(1134.9064,143.77838)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo8" data-attr="svg-transform: translate(827.31493,172.06265)"></div>
+<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(820.24386,-86.031322)"></div>
+
+<!-- 9 to done, 5 8 to done -->
+<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(1137.2634,-32.998314)"></div>
+<div class="anim-attribute slide anim-continue" data-what="#todo5" data-attr="svg-transform: translate(1212.6881,23.570222)"></div>
+<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(1133.7279,240.4163)"></div>
+
+  </section>
+
+  <section class="slide no-md">
+    <h3>It works ...almost </h3>
+    <object type="deckjs/svg" class="svgitem svg4">
+      <param name="src" value="kanban.svg" />
+      <param name="width" value="1422px" />
+      <param name="height" value="800px" />
+    </object>
+
+    <div class="anim-hide slide anim-continue"
+      data-what="#todo1,#todo2,#todo3,#todo4,#todo5,#todo6,#todo7,#dev1,#dev2,#dev3,#dev4,#dev5f,#dev8,#dev9,#po1,#po2,#po5,#po5f,#po6,#po7,#po8,#po9,#done3,#done4,#done5,#done6,#done7,#done8,#done9"></div>
+    <div class="anim-show slide" data-what="svg"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev5"></div>
+    <div class="anim-show slide" data-what="#po5"></div>
+    
+   
+    <div class="anim-hide slide anim-continue"
+      data-what="#todo9"></div>
+    <div class="anim-show slide" data-what="#dev9"></div>
+  
+  
+  <!--  Adding failing dev5 -->
+    <div class="anim-hide slide anim-continue" data-what="#po5"></div>
+    <div class="anim-show slide" data-what="#po5f"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po5f"></div>
+    <div class="anim-show slide" data-what="#dev5f"></div>  
+    
+  </section>
+
+<section class="slide">
+### What can we do ?
+#### What's wrong ?
+##### Reassign to the developer
+- Already working on something else
+- A developer (usually) can't do 2 things at the same time  
+- Context changes is hard for the developer
+
+##### PO test fails
+- PO/Customer and developers don't speak the same language
+- specifications are not enough
+
+#### Where BDD can help
+- PO/Customer writes test scenarios !
+- Developers understand it and don't have to think about his Scenario
+</section>
+
+
+  <section class="slide no-md">
+    <h3>Scenario design </h3>
+    <object type="deckjs/svg" class="svgitem svg4">
+      <param name="src" value="kanban-bdd.svg" />
+      <param name="width" value="1422px" />
+      <param name="height" value="800px" />
+    </object>
+
+    <div class="anim-hide slide anim-continue"
+      data-what="#sd1,#sd2,#sd3,#sd4,#sd5,#sd6,#sd7,#sd8,#sd9,#dev1,#dev2,#dev3,#dev4,#dev5,#dev5f,#dev6,#dev7,#dev8,#dev9, #po1,#po2,#po3,#po4,#po5,#po5f,#po6,#po7,#po8,#po9,#done1,#done2,#done3,#done4,#done5,#done6,#done7,#done8,#done9"></div>
+    <div class="anim-show slide" data-what="svg"></div>
+    <div class="anim-hide slide anim-continue" data-what="#todo1"></div>
+    <div class="anim-show slide" data-what="#sd1"></div>
+    <div class="anim-hide slide anim-continue" data-what="#sd1"></div>
+    <div class="anim-show slide" data-what="#dev1"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev1"></div>
+    <div class="anim-show slide" data-what="#po1"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po1"></div>
+    <div class="anim-show slide" data-what="#done1"></div>
+
+    <div class="anim-hide slide anim-continue" data-what="#todo2"></div>
+    <div class="anim-show slide" data-what="#sd2"></div>
+    <div class="anim-hide slide anim-continue" data-what="#sd2"></div>
+    <div class="anim-show slide" data-what="#dev2"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev2"></div>
+    <div class="anim-show slide" data-what="#po2"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po2"></div>
+    <div class="anim-show slide" data-what="#done2"></div>
+    
+    <div class="anim-hide slide anim-continue" data-what="#todo3, #todo4, #todo6"></div>
+    <div class="anim-show slide" data-what="#sd3,#sd4, #sd6"></div>
+    <div class="anim-hide slide anim-continue" data-what="#sd3"></div>
+    <div class="anim-show slide" data-what="#dev3"></div>
+        <div class="anim-hide slide anim-continue" data-what="#sd6"></div>
+    <div class="anim-show slide" data-what="#dev6"></div>
+        <div class="anim-hide slide anim-continue" data-what="#sd4"></div>
+    <div class="anim-show slide" data-what="#dev4"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev3"></div>
+    <div class="anim-show slide" data-what="#po3"></div>
+        <div class="anim-hide slide anim-continue" data-what="#todo7"></div>
+    <div class="anim-show slide" data-what="#sd7"></div>
+    <div class="anim-hide slide anim-continue" data-what="#sd7"></div>
+    <div class="anim-show slide" data-what="#dev7"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev4"></div>
+    <div class="anim-show slide" data-what="#po4"></div>
+        <div class="anim-hide slide anim-continue" data-what="#todo5"></div>
+    <div class="anim-show slide" data-what="#sd5"></div>
+    <div class="anim-hide slide anim-continue" data-what="#sd5"></div>
+    <div class="anim-show slide" data-what="#dev5"></div>
+    <div class="anim-hide slide anim-continue" data-what="#sd7, #sd5"></div>
+    <div class="anim-show slide" data-what="#dev7, #dev5"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev5"></div>
+    <div class="anim-show slide" data-what="#po5"></div>
+    <div class="anim-hide slide anim-continue" data-what="#todo9"></div>
+    <div class="anim-show slide" data-what="#sd9"></div>
+    <div class="anim-hide slide anim-continue" data-what="#sd9"></div>
+    <div class="anim-show slide" data-what="#dev9"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev6"></div>
+    <div class="anim-show slide" data-what="#po6"></div>
+        <div class="anim-hide slide anim-continue" data-what="#todo8"></div>
+    <div class="anim-show slide" data-what="#sd8"></div>
+        <div class="anim-hide slide anim-continue" data-what="#sd9"></div>
+    <div class="anim-show slide" data-what="#dev9"></div>
+        <div class="anim-hide slide anim-continue" data-what="#po5"></div>
+    <div class="anim-show slide" data-what="#done5"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po6"></div>
+    <div class="anim-show slide" data-what="#done6"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev7"></div>
+    <div class="anim-show slide" data-what="#po7"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po7"></div>
+    <div class="anim-show slide" data-what="#done7"></div>
+        <div class="anim-hide slide anim-continue" data-what="#sd8"></div>
+    <div class="anim-show slide" data-what="#dev8"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po6"></div>
+    <div class="anim-show slide" data-what="#done6"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po3, #po4"></div>
+    <div class="anim-show slide" data-what="#done3, #done4"></div>
+    <div class="anim-hide slide anim-continue" data-what="#dev8, #dev9"></div>
+    <div class="anim-show slide" data-what="#po8, #po9"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po9"></div>
+    <div class="anim-show slide" data-what="#done9"></div>
+    <div class="anim-hide slide anim-continue" data-what="#po8"></div>
+    <div class="anim-show slide" data-what="#done8"></div>
+    
+  </section>
+
+<section class="slide">##We all speak English</section>
+<section class="slide">
+### We all speak English
+#### What does this test do ?
+<div class="further-info">
+TODO: screen shot of selenium1 report
+</div>
+</section>
+
+<section class="slide">
+### We all speak English
+#### What's the context ?
+<div class="further-info">
+(screen shot of a stacktrace, and an inernerner subclass)
+</div>
+</section>
+
+<section class="slide">
+### We all speak English
+#### When it's broken,
+the author is the only one who understand
+<blockquote>I didn't write that test</blockquote>
+
+  - I'm new in the team
+  - I was working on another feature
+  - I'm not a developer
+</section>
+
+<section class="slide">
+### We all speak English
+When it's broken ...
+
+<blockquote>... It's good to know the context</blockquote>
+
+#####Developers fix broken tests
+Developers knows what is broken and can easily fix it
+
+#####PO decides to release
+PO knows what is broken and can easily take a decision
+</section>  
+
+
+<section class="slide">
+##THANK YOU :) Questions ?
+</section>
+
+
+<section class="slide">
+###Extra: Maven and outputdir
+
+####Demo's content:
+<video class="float-right" width="400" height="222" controls="controls">
+  <source src="out.ogv" type="video/ogg" />
+</video>
+</section>
+
+<section class="slide">
+###Extra: Extension demo
+
+####Demo's content:
+<video class="float-right" width="400" height="222" controls="controls">
+  <source src="out.ogv" type="video/ogg" />
+</video>
+</section>
+
+
+
+
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+    <span class="deck-status-current"></span> / <span
+      class="deck-status-total"></span>
+  </p>
+
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+    <label for="goto-slide">Go to slide:</label> <input type="text"
+      name="slidenum" id="goto-slide" list="goto-datalist">
+    <datalist id="goto-datalist"></datalist>
+    <input type="submit" value="Go">
+  </form>
+
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script
+    src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <!-- script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.2.min.js"><\/script>')</script -->
+  <script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.2.min.js"><\/script>')</script>
+
+  <!-- Deck Core and extensions -->
+  <script src="deck.js/core/deck.core.js"></script>
+  <script src="deck.js/extensions/hash/deck.hash.js"></script>
+  <script src="deck.js/extensions/menu/deck.menu.js"></script>
+  <script src="deck.js/extensions/goto/deck.goto.js"></script>
+  <script src="deck.js/extensions/status/deck.status.js"></script>
+  <script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+  <script src="deck.js-markdown/deck.markdown.js/Markdown.Converter.js"></script>
+  <script src="deck.js-markdown/deck.markdown.js/deck.markdown.js"></script>
+  <script src="deck.js/extensions/scale/deck.scale.js"></script>
+
+        <script src="deck.js/extensions/step/deck.step.js"></script>
+        <script src="deck.js/extensions/events/deck.events.js"></script>
+  
+  <script src="deck.js/extensions/anim/deck.anim.js"></script>
+  <script src="deck.js/libs/jquerysvg/jquery.svg.min.js"></script>
+  <script src="deck.js/libs/jquerysvg/jquery.svganim.min.js"></script>
+  <script src="deck.js/extensions/svg/deck.svg.js"></script>
+<!--script type="text/javascript" src="presenterview/deck.presenterview.js"></script -->
+  <!-- Initialize the deck -->
+  <script>
+			$(function() {
+				$.deck('.slide');
+			});
+		</script>
+
+</body>
+</html>

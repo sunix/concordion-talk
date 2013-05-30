@@ -53,8 +53,12 @@
 
 
 <section class="slide">
-#BDD avec Concordion
+#BDD and Concordion
 ######Sun Seng David TAN @ Serli
+<!--
+1. Welcome
+2. talk about BDD and concordion
+ -->
 </section>
 
 <section class="slide">
@@ -68,11 +72,22 @@
 <img src="thales.gif" alt="Thales"/>
 
 <!--
-####FOSS and agile
-- Worked for FOSS vendor Nuxeo
-- Close to the community (Andesi.org, Nuxeo, PostgreSQL, etc ...)
-- Scrum master at Nuxeo
-- Fond of BDD and TDD
+Sun TAN 
+
+1. Java dev
+2. Almost 10 years exp
+3. Worked 6 for Nuxeo 
+ - software vendor
+ - higly modular platform open source
+ - Content management - Document management
+ - J2EE based
+4. Economic outlook software vendor based in Australia
+5. Thales
+6. Specialise in Eclipse RCP
+7. And of course all related to  Nuxeo
+8. //Found of FOSS
+9. Nice experience in the uses agile methodologies at Nuxeo (scrum master)
+10. Follow me Twitter
 -->
 
 @sunsengdavidtan  
@@ -85,35 +100,60 @@ https://github.com/sunix
 ####A few words about SERLI
 <img src="serlilogo.png" alt="Serli logo" class="float-right">
 
-- Software engineering company based in France
+- IT services company based in France
 - 65 people
 - 80% of the business is Java-related
 - Small company working for big ones
 - OSS contribution: 10% of workforce
 - www.serli.com
 - @SerliFr
+<!--
+Joined Serli few months ago
+
+1. an IT services company
+2. 10% of workforce in OSS contributions !!! Jboss Weld, Glassfish, etc ...
+3. We are good in our job and know what were are talking about
+4. this is why i join Serli
+5. web site and twitter
+-->
 </section>
 
 <section class="slide">
 ###Agenda - BDD and Concordion
-- TDD and BDD
+- TDD, BDD and Concordion
 - Corcordion basics - Live coding %s/coding/testing/g
-- Why BDD ?
+  - Assertion
+  - Parameters
+  - Test Suite
+  - Extension and Screenshots
+- Why BDD ? Why Concordion ?
 </section>
 
 <section class="slide">
-## TDD and BDD
+## TDD, BDD and Concordion
 </section>
 
 <section class="slide">
 ### TDD Test Driven Development
 <blockquote>Write test first, implements after</blockquote>
 
-###Benefits
+####Principles
+- Writes Junit test first
+- Class and Interface w/o implementations
+- Fix the test by adding implementations
+
+####Benefits
 - Developer natural APIs
 - Easier to refactor
 - Nice % test coverage
 - No over code design
+- 99% sure it's working even w/o the GUI implemented
+<!--
+#TDD for Test Driven Development
+1. write junit tests first
+2. while writing the tests, write interfaces and class (w/o writing the implms)
+3. implements to fix one by one
+-->
 </section>
 
 <section class="slide">
@@ -121,55 +161,116 @@ https://github.com/sunix
 
 <blockquote>Write Human readable test scenario first</blockquote>
 
-###Benefits
-- Human readable (dev, PO, users ...)
-- Nice % Acceptance tests, Non regression tests coverage
-- Developer knows exactly what to implement
+####Steps
+- User centric test scenarios
+- Code !
 
 ####Behavioral specification 
 - User stories
-- Scenarios
-- Given - When - Then
+ - Scenarios
+  - Pattern "Given - When - Then"
+
+<!--
+BDD for Behaviour Driven Development
+same idea but:
+
+- write/design first 
+ - test scenario first
+ - user centric
+ - can be used afterwards for functional test
+- before starting to code
+
+## In the litterature, Were are talking about 'Behavioral specification'
+composed of :
+
+- user stories
+  - Scenarios
+     - Pattern "Given When Then"
+
+
+TODO example ?
+ -->
+
 </section>
 
+<section class="slide no-md" id="skills-eclipse-rcp">
+<h3>Concordion</h3>
+
+<object type="deckjs/svg" class="float-right svgitem">
+  <param name="src" value="concordion.svg" />
+  <param name="width" value="800px" />
+  <param name="height" value="600px" />
+</object>
+
+<div class="anim-hide slide anim-continue" data-what="#reports"></div>
+
+
+<h4>A BDD tools</h4>
+<ul><li>Integrates behavioral specs</li>
+<li>Drive your functional tests</li>
+<li>Java based fixture (Junit)</li>
+</ul>
+<!--
+#A bdd tool
+- The idea is to integrate the Behavioral specs written in English
+- Starting point of your functional/non regression tests
+
+# Composed of
+- html "Behavioral spec"
+- java "Fixture" code for driving your functional test (selenium)
+- instrumentations by hidden html attributes
+
+# generates nice reports
+## behavioral specs + 
+- visual indic : failing when it's red
+- stack traces
+- screenshots etc ...
+
+ -->
+
+<div class="anim-show slide" data-what="svg">
+<h4>Composed of</h4>
+<ul><li>Behavioral Specs/scenario in html</li>
+<li>Fixtures in java (drive your functional tests)</li>
+</ul>
+Hidden html attributes, calls fixture methods.
+
+</div>
+
+<div class="anim-show slide" data-what="#reports">
+<h4>Concordion life cycle</h4>
+<ul><li>Behavioral specs is parsed</li>
+<li>Generates reports
+<ul><li>the Behavioral specs</li>
+<li>visual indicator (failing in red, etc ...)</li>
+<li>additional informations (stacktrace, screenshots etc ...)</li></ul></li></ul>
+</div>
+</section>
 
 <section class="slide">
 ## Corcordion basics - Live coding %s/coding/testing/g
 </section>
 
  
-<section class="slide" id="skills-eclipse-rcp">
-###Concordion the basics
-<img alt="How it works" src="HowItWorks.png" class="float-right"></img>
 
-- Behavioral Specs/scenario in html
-- Fixtures in java
-
-#### Concordion life cycle
-- Linked all together with special attributes in the specs.
-- Behavioral specs is parsed
-- Execute fixtures instructions
-- Generates reports
-</section>
-
-<section id="basics" class="slide no-md">
+<section id="basics0" class="slide no-md basics0">
 <h3>Concordion basics</h3>
 <div class="split-box split-37">
-<div id="myslide1" class="slide">
+<div id="basics1" class="slide basics1">
 ####Behavioral specs and fixtures
  - same folder/package
  - same name
 </div>
-<div id="myslide2" class="slide">
+<div id="basics2" class="slide basics2">
 ####Requirements
 - Concordion namespace
 - `ConcordionRunner` JUnit4 runner
 </div>
-<div id="myslide3" class="slide">
+<div id="basics3" class="slide basics3">
 ####Basic Concordion instrumentations
  - html tags drive fixture methods
 </div>
-<div id="myslide4" class="slide">
+<div id="basics4" class="slide basics4">
 ####Use anything in java to "drive" your test
 - Plain java
 - Selenium Webdriver
@@ -201,11 +302,15 @@ public class <span class="show1">HelloWorld</span> {
 
 
 <section class="slide">
-###c:assertEquals() demo
-####Good to know
-Takes a method name as parameter
+###Assertions with `c:assertEquals()` demo
+<blockquote>The most used Concordion instruction</blockquote>
+
+####How
+Takes a method call
 
     Hello <span c:assertEquals="world()">World</span>
+
+The test fails if return value is not Equals to the html element value
 
 ####Demo's content:
 <video class="float-right" width="711" height="400" controls="controls">
@@ -226,7 +331,7 @@ Takes a method name as parameter
 </section>
 
 <section class="slide no-md">
-<h3>Variables with c:set</h3>
+<h3>Variables with <code>c:set</code></h3>
 <div class="split-box split-37">
 <div class="slide">
 ####Specification
@@ -264,7 +369,7 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 </section>
 
 <section class="slide">
-###c:set() demo
+###Variables with `c:set()` demo
 ####Demo's content:
 <video class="float-right" width="711" height="400" controls="controls">
   <source src="screencasts/demo2-set.ogg" type="video/ogg" />
@@ -276,7 +381,7 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 
 
 <section class="slide">
-###c:run
+###Test suites with `c:run`
 ####Test Suite
 - Run/call another concordion test from a concordion test
 - `<a href="link/to/the/subtest.html" c:run="concordion">My subtest</a>` in the main specification
@@ -418,14 +523,13 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 <div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(326.44763,-188.56181)"></div>
 
 <!-- 6 to po, 8 to dev, 6 to done, 7 to po -->
-<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
+<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(877.99092,134.35029)"></div>
 <div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(384.19468,71.889185)"></div>
 <div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
 <div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(833.20749,14.14214)"></div>
 
-<!-- 7 to done, 6 to done, 3 4 to done, 8 9 to po -->
+<!-- 7 to done, 3 4 to done, 8 9 to po -->
 <div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(1243.3294,142.59987)"></div>
-<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
 <div class="anim-attribute slide anim-continue" data-what="#todo3" data-attr="svg-transform: translate(1134.9064,143.77838)"></div>
 <div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(1198.546,-111.95857)"></div>
 <div class="anim-attribute slide anim-continue" data-what="#todo8" data-attr="svg-transform: translate(827.31493,172.06265)"></div>
@@ -486,6 +590,28 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 #### Where BDD can help
 - PO/Customer writes test scenarios !
 - Developers understand it and don't have to think about his Scenario
+
+<!--
+##Problem is
+- Dev is already working on something else
+- Strangely, A developer (usually) can't do 2 things at the same time
+- He has to switch back to the failing task at some point
+  - Reopen the right branch
+  - Reopen the right files / folder
+  - Backup what he is already doing (and don't want to push)
+  - Taking a coffe
+  - Anyway, Context changes is hard for the developer
+
+##Why it fails ?
+- function specifications are not facts
+- Func specs describe how the software is but not how it should work
+- Some functional choices left to the dev
+- not always what the PO/user want
+
+##Where BDD can help
+- PO/Customer writes test scenarios together!
+- Developers understand it and don't have to think about his Scenario
+-->
 </section>
 
 
@@ -557,25 +683,23 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
     
   </section>
 
-<section class="slide">##We all speak English</section>
+<section class="slide">##Why Concordion ?</section>
 <section class="slide">
-### We all speak English
+### Why Concordion ?
 #### What does this test do ?
-<div class="further-info">
-TODO: screen shot of selenium1 report
-</div>
+
+![Screenshot failing selenium](selenium.png)
 </section>
 
 <section class="slide">
-### We all speak English
+### Why Concordion ?
 #### What's the context ?
-<div class="further-info">
-(screen shot of a stacktrace, and an inernerner subclass)
-</div>
+
+![Screenshot failing webdriver](webdriver_stack.png)
 </section>
 
 <section class="slide">
-### We all speak English
+### Why Concordion ?
 #### When it's broken,
 the author is the only one who understand
 <blockquote>I didn't write that test</blockquote>
@@ -586,7 +710,7 @@ the author is the only one who understand
 </section>
 
 <section class="slide">
-### We all speak English
+### Why Concordion ?
 When it's broken ...
 
 <blockquote>... It's good to know the context</blockquote>
@@ -596,7 +720,23 @@ Developers knows what is broken and can easily fix it
 
 #####PO decides to release
 PO knows what is broken and can easily take a decision
+
+
+Concordion gives nice reports that everyone can understand.
 </section>  
+
+<section class="slide">
+### Summary
+#### BDD
+- No misunderstood requirements -> faster development process
+
+#### Concordion
+- Nice reports with useful informations
+- My tests can be read by anyone
+- Just one more file (html)
+- 3 mains instrumentation command to know
+
+</section>
 
 
 <section class="slide">

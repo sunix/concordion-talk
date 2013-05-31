@@ -2,8 +2,6 @@ package com.serli.demo.concordion;
 
 import org.concordion.api.extension.ConcordionExtension;
 import org.concordion.api.extension.Extension;
-import org.concordion.api.extension.Extensions;
-import org.concordion.ext.ScreenshotExtension;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -12,17 +10,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.serli.demo.concordion.ext.ResourcesExtension;
-import com.serli.demo.concordion.ext.SeleniumScreenshotTaker;
+import com.serli.demo.concordion.ext.MyExtension;
 
 @RunWith(ConcordionRunner.class)
-@Extensions(ResourcesExtension.class)
 public class Login {
 
 	@Extension
-	public ConcordionExtension extension = new ScreenshotExtension()
-			.setScreenshotOnAssertionSuccess(true).setScreenshotTaker(
-					new SeleniumScreenshotTaker(driver));
+	public ConcordionExtension extension = new MyExtension().setSeleniumDriver(driver);
 
 	private static FirefoxDriver driver;
 

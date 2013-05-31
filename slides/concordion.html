@@ -77,21 +77,17 @@ Sun TAN
 1. Java dev
 2. Almost 10 years exp
 3. Worked 6 for Nuxeo 
- - software vendor
- - higly modular platform open source
+ - THE (platform opensource)
  - Content management - Document management
  - J2EE based
-4. Economic outlook software vendor based in Australia
-5. Thales
-6. Specialise in Eclipse RCP
-7. And of course all related to  Nuxeo
-8. //Found of FOSS
-9. Nice experience in the uses agile methodologies at Nuxeo (scrum master)
-10. Follow me Twitter
+//4. Economic outlook software, Thales
+//6. Done lots of Nuxeo and Eclipse RCP dev
+//9. Nice experience in the uses agile methodologies at Nuxeo (scrum master)
+//10. Keep in touch on Twitter/IRC if any questions
 -->
 
-@sunsengdavidtan  
-https://github.com/sunix
+Twitter: @sunsengdavidtan 
+IRC: sunix  
 
 </section>
 
@@ -112,28 +108,33 @@ Joined Serli few months ago
 
 1. an IT services company
 2. 10% of workforce in OSS contributions !!! Jboss Weld, Glassfish, etc ...
-3. We are good in our job and know what were are talking about
 4. this is why i join Serli
-5. web site and twitter
 -->
 </section>
 
 <section class="slide">
 ###Agenda - BDD and Concordion
-- TDD, BDD and Concordion
-- Corcordion basics - Live coding %s/coding/testing/g
+- BDD and Concordion
+- Corcordion basics and demo
   - Assertion
   - Parameters
-  - Test Suite
   - Extension and Screenshots
 - Why BDD ? Why Concordion ?
+<!--
+#Agenda
+- BDD and Concordion principles
+- What you need to know to start with Concordion
+- Demo with a project from scratch
+- Some good reasons to use BDD and Concordion based on my XP
+-->
 </section>
 
 <section class="slide">
-## TDD, BDD and Concordion
+## BDD and Concordion
 </section>
 
-<section class="slide">
+<!-- Skipped (no time)
+section class="slide">
 ### TDD Test Driven Development
 <blockquote>Write test first, implements after</blockquote>
 
@@ -142,43 +143,58 @@ Joined Serli few months ago
 - Class and Interface w/o implementations
 - Fix the test by adding implementations
 
+#### Main benefit
+- tests == requirements  
+- 99% requirements met
+
 ####Benefits
 - Developer natural APIs
 - Easier to refactor
 - Nice % test coverage
 - No over code design
 - 99% sure it's working even w/o the GUI implemented
-<!--
+
+
+--
 #TDD for Test Driven Development
 1. write junit tests first
 2. while writing the tests, write interfaces and class (w/o writing the implms)
 3. implements to fix one by one
--->
-</section>
+
+Benefits:
+- Your tests become your requirements
+- By fixing the test, meet your requirements
+--
+</section-->
 
 <section class="slide">
 ### BDD Behaviour Driven Development
+TDD but from the user level
 
-<blockquote>Write Human readable test scenario first</blockquote>
+<blockquote>Write "Behavioral specifications" first</blockquote>
 
 ####Steps
-- User centric test scenarios
+- Design functional test scenarios
 - Code !
 
-####Behavioral specification 
+Requirements met at the end :)
+
+####Behavioral specifications 
 - User stories
- - Scenarios
-  - Pattern "Given - When - Then"
+  - Scenarios
+     - Given: Prerequisites
+     - When: Actions
+     - Then: Expectations
 
 <!--
 BDD for Behaviour Driven Development
-same idea but:
+TDD But user level
 
-- write/design first 
- - test scenario first
- - user centric
- - can be used afterwards for functional test
-- before starting to code
+- Design first 
+  - functional test scenario first
+  - user oriented
+- CODE
+- Can be reused afterwards in functional/non-regression tests
 
 ## In the litterature, Were are talking about 'Behavioral specification'
 composed of :
@@ -186,9 +202,10 @@ composed of :
 - user stories
   - Scenarios
      - Pattern "Given When Then"
+       - Given: requirements (my server is started with the hostname, my user is in the LDAP)
+       - When: actions ( i fills the form, i submit the page...)
+       - Then: expectations ( redirected in the page X, etc ...)
 
-
-TODO example ?
  -->
 
 </section>
@@ -208,12 +225,11 @@ TODO example ?
 <h4>A BDD tools</h4>
 <ul><li>Integrates behavioral specs</li>
 <li>Drive your functional tests</li>
-<li>Java based fixture (Junit)</li>
 </ul>
 <!--
 #A bdd tool
-- The idea is to integrate the Behavioral specs written in English
-- Starting point of your functional/non regression tests
+- Integrate the Behavioral specs ... design previously
+- Will be the Starting point of your functional/non regression tests
 
 # Composed of
 - html "Behavioral spec"
@@ -305,27 +321,24 @@ public class <span class="show1">HelloWorld</span> {
 ###Assertions with `c:assertEquals()` demo
 <blockquote>The most used Concordion instruction</blockquote>
 
-####How
-Takes a method call
-
     Hello <span c:assertEquals="world()">World</span>
 
-The test fails if return value is not Equals to the html element value
+Fails if `world()`≠ `"World"`
 
 ####Demo's content:
 <video class="float-right" width="711" height="400" controls="controls">
-  <source src="screencasts/demo1-assertEquals.ogg" type="video/ogg" />
+  <source src="screencasts/demo1-assertEquals3.ogg" type="video/ogg" />
 </video>
 
 - Project configuration
 - Eclipse plugin
 - Basic login scenario
-- Markdown.js
-- Given When Then
+  - Markdown.js
+  - Given When Then
 - assertEquals
-- Test failures:
-  - wrong assumption
-  - Exception
+  - Test failures:
+     - wrong assumption
+     - Exception
 - Webdriver
 
 </section>
@@ -379,22 +392,6 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 </section>
 
 
-
-<section class="slide">
-###Test suites with `c:run`
-####Test Suite
-- Run/call another concordion test from a concordion test
-- `<a href="link/to/the/subtest.html" c:run="concordion">My subtest</a>` in the main specification
-
-####Demo's content:
-<video class="float-right" width="711" height="400" controls="controls">
-  <source src="screencasts/demo3-suite-2.ogg" type="video/ogg" />
-</video>
-
-- Suite with c:run
-</section>
-
-
 <section class="slide">
 ###Extensions and Screenshots
 <video class="float-right" width="711" height="400" controls="controls">
@@ -445,62 +442,6 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
     <div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform:  translate(463.15494,-205.06096)"></div>
     <div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(863.84878,-200.34692)"></div>
     <div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(1154.9411,-192.09734)"></div>
-
-<!-- 
-1
-<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(-229.8097,-182.66925)"></div>
-<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(463.15494,-205.06096)"></div>
-<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(863.84878,-200.34692)"></div>
-<div class="anim-attribute slide" data-what="#todo1" data-attr="svg-transform: translate(1154.9411,-192.09734)"></div>
-
-2
-<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(-179.13372,-114.3156)"></div>
-<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(440.76322,215.66756)"></div>
-<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(850.88515,292.27079)"></div>
-<div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(1174.9758,348.83934)"></div>
-
-4
-<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(-246.30886,-53.033008)"></div>
-<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(434.87067,-207.41799)"></div>
-<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(877.99092,-155.56349)"></div>
-<div class="anim-attribute slide" data-what="#todo4" data-attr="svg-transform: translate(1134.9064,143.77838)"></div>
-
-6
-<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(-148.49242,-12.963624)"></div>
-<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(469.0475,67.175144)"></div>
-<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(877.99092,134.35029)"></div>
-<div class="anim-attribute slide" data-what="#todo6" data-attr="svg-transform: translate(1220.9377,269.87909)"></div>
-
-3
-<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(-261.62951,94.280904)"></div>
-<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(486.72517,-62.461099)"></div>
-<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(872.09836,-18.856181)"></div>
-<div class="anim-attribute slide" data-what="#todo3" data-attr="svg-transform: translate(1198.546,-111.95857)"></div>
-
-7
-<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(-162.63456,141.42136)"></div>
-<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(383.01617,-64.818117)"></div>
-<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(833.20749,14.14214)"></div>
-<div class="anim-attribute slide" data-what="#todo7" data-attr="svg-transform: translate(1243.3294,142.59987)"></div>
-
-5
-<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(-248.66588,248.66588)"></div>
-<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(562.14989,-190.91883)"></div>
-<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(840.27856,-127.27922)"></div>
-<div class="anim-attribute slide" data-what="#todo5" data-attr="svg-transform: translate(1212.6881,23.570222)"></div>
-
-8
-<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(-173.24116,312.30549)"></div>
-<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(384.19468,71.889185)"></div>
-<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(827.31493,172.06265)"></div>
-<div class="anim-attribute slide" data-what="#todo8" data-attr="svg-transform: translate(1133.7279,240.4163)"></div>
-
-9
-<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(-214.48906,397.15831)"></div>
-<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(326.44763,-188.56181)"></div>
-<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(820.24386,-86.031322)"></div>
-<div class="anim-attribute slide" data-what="#todo9" data-attr="svg-transform: translate(1137.2634,-32.998314)"></div>
--->
 
 <div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(440.76322,215.66756)"></div>
 <div class="anim-attribute slide" data-what="#todo2" data-attr="svg-transform: translate(850.88515,292.27079)"></div>
@@ -737,11 +678,33 @@ Concordion gives nice reports that everyone can understand.
 - 3 mains instrumentation command to know
 
 </section>
+<section class="slide">
+### Want more ?
+####If I had more time ...
 
+- Test Suite with `c:run`
+- Maven output dir
+- How to write an extension: Resources extension
 
+</section>
 <section class="slide">
 ##THANK YOU :) Questions ?
 </section>
+
+<section class="slide">
+###Extra: Test suites with `c:run`
+####Test Suite
+- Run/call another concordion test from a concordion test
+- `<a href="link/to/the/subtest.html" c:run="concordion">My subtest</a>` in the main specification
+
+####Demo's content:
+<video class="float-right" width="711" height="400" controls="controls">
+  <source src="screencasts/demo3-suite-2.ogg" type="video/ogg" />
+</video>
+
+- Suite with c:run
+</section>
+
 
 
 <section class="slide">
@@ -810,7 +773,7 @@ Concordion gives nice reports that everyone can understand.
   <script src="deck.js/libs/jquerysvg/jquery.svg.min.js"></script>
   <script src="deck.js/libs/jquerysvg/jquery.svganim.min.js"></script>
   <script src="deck.js/extensions/svg/deck.svg.js"></script>
-<!--script type="text/javascript" src="presenterview/deck.presenterview.js"></script -->
+  <script type="text/javascript" src="presenterview/deck.presenterview.js"></script>
   <!-- Initialize the deck -->
   <script>
 			$(function() {

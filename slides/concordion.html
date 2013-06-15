@@ -42,7 +42,12 @@
 
 <script src="deck.js/modernizr.custom.js"></script>
 </head>
-
+<style>
+@font-face {
+  font-family: "stopserli";
+  src: url("stop.ttf");
+}
+</style>
 <body class="deck-container">
 
 
@@ -53,8 +58,9 @@
 
 
 <section class="slide">
-#BDD and Concordion
+#BDD and Concordion  ![Breizhcamp](breizhcamp.png)
 ######Sun Seng David TAN @ Serli
+
 <!--
 1. Welcome
 2. talk about BDD and concordion
@@ -80,9 +86,11 @@ Sun TAN
  - THE (platform opensource)
  - Content management - Document management
  - J2EE based
+
+6. Done lots of Nuxeo and Eclipse RCP dev
+9. Nice experience in the uses agile methodologies at Nuxeo (scrum master)
+
 //4. Economic outlook software, Thales
-//6. Done lots of Nuxeo and Eclipse RCP dev
-//9. Nice experience in the uses agile methodologies at Nuxeo (scrum master)
 //10. Keep in touch on Twitter/IRC if any questions
 -->
 
@@ -92,9 +100,10 @@ IRC: sunix
 </section>
 
 <section class="slide">
-### Java Software Developer @Serli
-####A few words about SERLI
-<img src="serlilogo.png" alt="Serli logo" class="float-right">
+### Java Software Developer @<span style="font-family:'stopserli'; font-weight:normal; font-size:1.5em; color:#9bc8d9;">SERLi</span>
+####A few words about <span style="font-family:stopserli; font-weight:normal; font-size:1.5em; color:#9bc8d9;">SERLi</span>
+
+
 
 - IT services company based in France
 - 65 people
@@ -169,42 +178,45 @@ Benefits:
 
 <section class="slide">
 ### BDD Behaviour Driven Development
-TDD but from the user level
+(A)TDD but ... 
 
 <blockquote>Write "Behavioral specifications" first</blockquote>
-
-####Steps
-- Design functional test scenarios
-- Code !
-
-Requirements met at the end :)
-
-####Behavioral specifications 
+####Behavioral specification
+- Spoken language 
 - User stories
   - Scenarios
      - Given: Prerequisites
      - When: Actions
      - Then: Expectations
+- Usually your functional test scenarios
+
+####Steps
+- Write "Behavioral specifications"
+- Code and Validate the feature right away
+
+Requirements met at the end :)
+
 
 <!--
-BDD for Behaviour Driven Development
-TDD But user level
-
-- Design first 
-  - functional test scenario first
-  - user oriented
-- CODE
-- Can be reused afterwards in functional/non-regression tests
 
 ## In the litterature, Were are talking about 'Behavioral specification'
 composed of :
 
+- natural language
 - user stories
   - Scenarios
      - Pattern "Given When Then"
        - Given: requirements (my server is started with the hostname, my user is in the LDAP)
        - When: actions ( i fills the form, i submit the page...)
        - Then: expectations ( redirected in the page X, etc ...)
+- your functional tests usually
+
+## steps
+- Design first 
+  - behavioural specs
+- CODE
+- Can be reused afterwards in functional/non-regression tests
+
 
  -->
 
@@ -228,13 +240,13 @@ composed of :
 </ul>
 <!--
 #A bdd tool
-- Integrate the Behavioral specs ... design previously
-- Will be the Starting point of your functional/non regression tests
+- Integrate the Behavioral specs in your DEV process
+- Starting point of your functional/non regression tests
 
 # Composed of
 - html "Behavioral spec"
 - java "Fixture" code for driving your functional test (selenium)
-- instrumentations by hidden html attributes
+- instrumentations by hidden html attributes (details later)
 
 # generates nice reports
 ## behavioral specs + 
@@ -246,7 +258,7 @@ composed of :
 
 <div class="anim-show slide" data-what="svg">
 <h4>Composed of</h4>
-<ul><li>Behavioral Specs/scenario in html</li>
+<ul><li>Behavioral Specs in html</li>
 <li>Fixtures in java (drive your functional tests)</li>
 </ul>
 Hidden html attributes, calls fixture methods.
@@ -255,7 +267,7 @@ Hidden html attributes, calls fixture methods.
 
 <div class="anim-show slide" data-what="#reports">
 <h4>Concordion life cycle</h4>
-<ul><li>Behavioral specs is parsed</li>
+<ul>
 <li>Generates reports
 <ul><li>the Behavioral specs</li>
 <li>visual indicator (failing in red, etc ...)</li>
@@ -264,7 +276,7 @@ Hidden html attributes, calls fixture methods.
 </section>
 
 <section class="slide">
-## Corcordion basics - Live coding %s/coding/testing/g
+## Corcordion basics + Demos
 </section>
 
  
@@ -284,7 +296,7 @@ Hidden html attributes, calls fixture methods.
 </div>
 <div id="basics3" class="slide basics3">
 ####Basic Concordion instrumentations
- - html tags drive fixture methods
+ - html instructions call fixture methods
 </div>
 <div id="basics4" class="slide basics4">
 ####Use anything in java to "drive" your test
@@ -308,7 +320,8 @@ Hello &lt;span<span class="show3"> c:assertEquals="world()"</span>&gt;<span clas
 @RunWith(ConcordionRunner.class)</span>
 public class <span class="show1">HelloWorld</span> {
 <span class="show3">    public String world(){
-        <span class="show4">return "World";</span>
+        <span class="show4">// write selenium code here
+        return "World";</span>
     }
 </span>
 }</code></pre>
@@ -326,9 +339,7 @@ public class <span class="show1">HelloWorld</span> {
 Fails if `world()`≠ `"World"`
 
 ####Demo's content:
-<video class="float-right" width="711" height="400" controls="controls">
-  <source src="screencasts/demo1-assertEquals3.ogg" type="video/ogg" />
-</video>
+
 
 - Project configuration
 - Eclipse plugin
@@ -336,10 +347,10 @@ Fails if `world()`≠ `"World"`
   - Markdown.js
   - Given When Then
 - assertEquals
-  - Test failures:
-     - wrong assumption
-     - Exception
 - Webdriver
+
+####Screencast
+http://youtu.be/agpKntjoGsk
 
 </section>
 
@@ -384,32 +395,32 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 <section class="slide">
 ###Variables with `c:set()` demo
 ####Demo's content:
-<video class="float-right" width="711" height="400" controls="controls">
-  <source src="screencasts/demo2-set.ogg" type="video/ogg" />
-</video>
 
 - param variable with c:set()
+
+####Screencast
+http://youtu.be/bg2qzjDg6tc
 </section>
 
 
 <section class="slide">
 ###Extensions and Screenshots
-<video class="float-right" width="711" height="400" controls="controls">
-  <source src="screencasts/demo4-screenshot.ogg" type="video/ogg" />
-</video>
+
+####Screenshot extension
+- Takes screenshots and display them in the reports
 
 ####Extensions
  - `@Extensions` to the class
  - `@Extension` to the extension attribute of the class
  - Available extensions with `concordion-extensions`
 
-####Screenshot extension
-- Takes screenshots and display them in the reports
-
 ####Demo's content:
 - 2 ways to add screenshots
 - Screenshot on failure
 - Screenshot always
+
+####Screencast
+http://youtu.be/acj4AYkHnLU
 </section>
 
 
@@ -529,8 +540,8 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 - specifications are not enough
 
 #### Where BDD can help
-- PO/Customer writes test scenarios !
-- Developers understand it and don't have to think about his Scenario
+- PO/User write/validate test scenarios !
+- Developers know how to validate a feature
 
 <!--
 ##Problem is
@@ -550,7 +561,7 @@ public String greetingFor(String <span class="passvars">firstName</span>) {
 - not always what the PO/user want
 
 ##Where BDD can help
-- PO/Customer writes test scenarios together!
+- PO/Users write test scenarios
 - Developers understand it and don't have to think about his Scenario
 -->
 </section>
@@ -654,7 +665,7 @@ the author is the only one who understand
 ### Why Concordion ?
 When it's broken ...
 
-<blockquote>... It's good to know the context</blockquote>
+####... It's good to know the context
 
 #####Developers fix broken tests
 Developers knows what is broken and can easily fix it
@@ -663,7 +674,7 @@ Developers knows what is broken and can easily fix it
 PO knows what is broken and can easily take a decision
 
 
-Concordion gives nice reports that everyone can understand.
+<blockquote>Nice and useful reports</blockquote>
 </section>  
 
 <section class="slide">
@@ -674,8 +685,9 @@ Concordion gives nice reports that everyone can understand.
 #### Concordion
 - Nice reports with useful informations
 - My tests can be read by anyone
-- Just one more file (html)
-- 3 mains instrumentation command to know
+- Simple to use
+  - Just one more file (html)
+  - 3 mains instrumentation command to know
 
 </section>
 <section class="slide">
@@ -685,6 +697,16 @@ Concordion gives nice reports that everyone can understand.
 - Test Suite with `c:run`
 - Maven output dir
 - How to write an extension: Resources extension
+- Selenium screenshot
+
+#### Demo / slides online
+- https://github.com/sunix/concordion-talk
+- http://sunix.github.io/concordion-talk/slides/concordion.html
+
+#### Concordion website
+- http://www.concordion.org
+
+
 
 </section>
 <section class="slide">
@@ -707,7 +729,7 @@ Concordion gives nice reports that everyone can understand.
 
 
 
-<section class="slide">
+<!--section class="slide">
 ###Extra: Maven and outputdir
 
 ####Demo's content:
@@ -723,7 +745,7 @@ Concordion gives nice reports that everyone can understand.
 <video class="float-right" width="400" height="222" controls="controls">
   <source src="out.ogv" type="video/ogg" />
 </video>
-</section>
+</section-->
 
 
 
@@ -766,14 +788,16 @@ Concordion gives nice reports that everyone can understand.
   <script src="deck.js-markdown/deck.markdown.js/deck.markdown.js"></script>
   <script src="deck.js/extensions/scale/deck.scale.js"></script>
 
-        <script src="deck.js/extensions/step/deck.step.js"></script>
-        <script src="deck.js/extensions/events/deck.events.js"></script>
+  <script src="deck.js/extensions/step/deck.step.js"></script>
+  <script src="deck.js/extensions/events/deck.events.js"></script>
   
   <script src="deck.js/extensions/anim/deck.anim.js"></script>
   <script src="deck.js/libs/jquerysvg/jquery.svg.min.js"></script>
   <script src="deck.js/libs/jquerysvg/jquery.svganim.min.js"></script>
   <script src="deck.js/extensions/svg/deck.svg.js"></script>
+<!-- uncomment to use the presenter view
   <script type="text/javascript" src="presenterview/deck.presenterview.js"></script>
+-->
   <!-- Initialize the deck -->
   <script>
 			$(function() {

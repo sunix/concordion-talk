@@ -1,12 +1,12 @@
 concordion-talk
 ===============
 
-"BDD and Concordion" presentation and demo source.
+"BDD and Concordion" presentation and demo source done at Breizhcamp.
 
 ##View the presentation
 The presentation is available online at http://sunix.github.io/concordion-talk/slides/concordion.html (which is the gh-pages branch of this project).
 
-##Checkout the project
+##Checkout the presentation
 Slides are using git submodule and refer to other repository.
 
     git clone git://github.com/sunix/concordion-talk.git
